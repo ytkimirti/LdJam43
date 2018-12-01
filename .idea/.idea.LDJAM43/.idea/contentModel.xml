@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\kimirti\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\kimirti\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_LDJAM43.1034773064.00" t="ExcludeRecursive" />
+    <e p="D:\Project\Unity\LDJAM43" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="ChargerController.cs" t="Include" />
+        <e p="CodeBase" t="Include">
+          <e p="CodeSnippets" t="Include">
+            <e p="GlowLoop.cs" t="Include" />
+          </e>
+          <e p="Managers" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="ButtonController.cs" t="Include" />
+            <e p="MathfExtentions.cs" t="Include" />
+            <e p="ParticleManager.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Demigiant" t="Include">
+          <e p="DOTween" t="Include">
+            <e p="Modules" t="Include">
+              <e p="DOTweenModuleAudio.cs" t="Include" />
+              <e p="DOTweenModulePhysics.cs" t="Include" />
+              <e p="DOTweenModulePhysics2D.cs" t="Include" />
+              <e p="DOTweenModuleSprite.cs" t="Include" />
+              <e p="DOTweenModuleUI.cs" t="Include" />
+              <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+              <e p="DOTweenModuleUtils.cs" t="Include" />
+            </e>
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="EZ Camera Shake" t="Include">
+          <e p="Demo" t="Include">
+            <e p="Sample Scripts" t="Include">
+              <e p="ShakeByDistance.cs" t="Include" />
+              <e p="ShakeOnKeyPress.cs" t="Include" />
+              <e p="ShakeOnTrigger.cs" t="Include" />
+            </e>
+            <e p="ShakeDemo.cs" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="CameraShakeInstance.cs" t="Include" />
+            <e p="CameraShakePresets.cs" t="Include" />
+            <e p="CameraShaker.cs" t="Include" />
+            <e p="Utilities" t="Include">
+              <e p="CameraUtilities.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="HealthBar.cs" t="Include" />
+        <e p="HeaterController.cs" t="Include" />
+        <e p="Mount.cs" t="Include" />
+        <e p="Scenes" t="Include">
+          <e p="Example" t="Include">
+            <e p="MoveCamera.cs" t="Include" />
+            <e p="Spin.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="AutoLayer.cs" t="Include" />
+          <e p="BatteryController.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="GinionController.cs" t="Include" />
+          <e p="Grinder.cs" t="Include" />
+          <e p="PlayerController.cs" t="Include" />
+          <e p="SpriteOutline.cs" t="Include" />
+        </e>
+        <e p="Sprites-Outline.shader" t="Include" />
+        <e p="Wolv Interactive" t="Include">
+          <e p="Pixel Perfect Retro Camera" t="Include">
+            <e p="readme.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="PixelCamera.cs" t="Include" />
+              <e p="SnapToPixel.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="LDJAM43.sln" t="IncludeFlat" />
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

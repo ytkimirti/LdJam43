@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ginion
+  - battery
+  - Grinder
+  - mount
+  - grinder
+  - charger
+  - heater
+  - scrap
   layers:
   - Default
   - TransparentFX
@@ -13,8 +21,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Pickup
+  - Player
   - 
   - 
   - 
@@ -38,6 +46,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 1569445795
+    locked: 0
+  - name: Back
+    uniqueID: 1828912065
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Storm
+    uniqueID: 856139891
+    locked: 0
+  - name: Front
+    uniqueID: 27517813
     locked: 0
