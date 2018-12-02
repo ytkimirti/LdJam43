@@ -19,13 +19,13 @@ public class CameraController : MonoBehaviour
 	
 	void LateUpdate ()
 	{
-		//Vector2 inp = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
+		Vector2 inp = new Vector2(Input.GetAxis("Horizontal"),Input.GetAxis("Vertical"));
 		
 		
 		
-		//transform.position = Vector3.Lerp(transform.position, target.position + offset + (Vector3)(inp * inpOffset), lerpSpeed * Time.deltaTime);
+		transform.position = Vector3.Lerp(transform.position, target.position + offset + (Vector3)(inp * inpOffset), lerpSpeed * Time.deltaTime);
 
 
-		transform.position = target.position + offset;
+		//transform.position = target.position + offset;
 	}
 }

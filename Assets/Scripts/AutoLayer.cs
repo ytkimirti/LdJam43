@@ -17,8 +17,9 @@ public class AutoLayer : MonoBehaviour {
 
 		spriteRenderer = GetComponent<SpriteRenderer>();
 
-		if (spriteRenderer)
-			isSpriteRen = true;
+		isSpriteRen = true;
+		if (spriteGroup)
+			isSpriteRen = false;
 		else if (!spriteRenderer && !spriteGroup)
 		{
 			isEmpty = true;

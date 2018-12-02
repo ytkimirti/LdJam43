@@ -40,7 +40,13 @@ public class PlayerController : MonoBehaviour
 	Rigidbody2D rb;
 	Vector2 inp;
 
-	void Start () {
+	public static PlayerController main;
+	
+	void Start ()
+	{
+
+		main = this;
+		
 		rb = GetComponent<Rigidbody2D>();
 
 		juice = maxJuice;
@@ -90,7 +96,7 @@ public class PlayerController : MonoBehaviour
 		foreach (Collider2D c in col)
 		{
 			if ((!isLoaded && (c.tag == "battery" || c.tag == "ginion" || c.tag == "scrap")) ||
-			    (isLoaded && (c.tag == "charger" || c.tag == "grinder" || c.tag == "heater" || c.tag == "ship")))
+			    (isLoaded && (c.tag == "charger" || c.tag == "grinder" || c.tag == "heater" || c.tag == "ship" || c.tag == "shipcharger")))
 			{
 				return c;
 			}
@@ -105,8 +111,6 @@ public class PlayerController : MonoBehaviour
 		if (isDed)
 			return;
 		
-		
-		
 		faceAnimator.SetBool("isCharging", charger.isCharging);
 		
 		if (charger.isCharging)
@@ -119,7 +123,7 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			juice -= Time.deltaTime * 3;	
+			juice -= Time.deltaTime * 1.5f;	
 		}
 		
 		if (juice < 0)
@@ -150,6 +154,8 @@ public class PlayerController : MonoBehaviour
 				{
 					heater.currBattery = null;
 				}
+
+				currLoad.DOKill();
 				
 				currLoad.transform.parent = pickupPoint;
 				currLoad.transform.localPosition = Vector3.zero;
@@ -157,7 +163,9 @@ public class PlayerController : MonoBehaviour
 				currLoad.gameObject.layer = 0;
 			}
 		}
-		else if (currLoad && col && (col.gameObject.tag == "grinder" || col.gameObject.tag == "batterymount" || col.gameObject.tag == "charger" || col.gameObject.tag == "heater"))
+		else if (currLoad && col && (col.gameObject.tag == "grinder" || col.gameObject.tag == "batterymount" ||
+		                             col.gameObject.tag == "charger" || col.gameObject.tag == "heater" ||
+		                             col.gameObject.tag == "shipcharger" || col.gameObject.tag == "ship"))
 		{
 			if (currLoad.gameObject.tag == "ginion" && col.gameObject.tag == "grinder")
 			{
@@ -186,6 +194,14 @@ public class PlayerController : MonoBehaviour
 				{
 					//col.gameObject.GetComponent<HeaterController>().MountBattery(currLoad);
 					print("Loading scrap to the spaceship!");
+					col.gameObject.GetComponent<ShipController>().MountScrap(currLoad);
+					Unload();
+				}
+			}else if (col.gameObject.tag == "shipcharger" && currLoad.gameObject.tag == "battery")
+			{
+				if (Input.GetKeyDown(KeyCode.Space))
+				{
+					col.gameObject.GetComponent<ShipChargerController>().MountBattery(currLoad);
 					Unload();
 				}
 			}
@@ -219,5 +235,8 @@ public class PlayerController : MonoBehaviour
 	void UpdateInput()
 	{
 		inp = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
+
+		if (GameManager.main.stopPlayer)
+			inp = Vector2.zero;
 	}
 }

@@ -12,6 +12,10 @@ TagManager:
   - charger
   - heater
   - scrap
+  - upgrader
+  - shipcharger
+  - shpi
+  - ship
   layers:
   - Default
   - TransparentFX
@@ -23,7 +27,7 @@ TagManager:
   - 
   - Pickup
   - Player
-  - 
+  - PostProcessing
   - 
   - 
   - 

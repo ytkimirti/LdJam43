@@ -54,4 +54,10 @@ public class HeaterController : MonoBehaviour
 		battery.transform.position = batteryPoint.position;
 		currBattery = battery;
 	}
+
+	public void IncreaseRadius(float val)
+	{
+		safezoneRadius += val;
+		lightEffect.transform.localScale = Vector3.one * safezoneRadius * 2;
+	}
 }

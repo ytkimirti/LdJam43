@@ -6,7 +6,6 @@
     <e p="D:\Project\Unity\LDJAM43" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ChargerController.cs" t="Include" />
         <e p="CodeBase" t="Include">
           <e p="CodeSnippets" t="Include">
             <e p="GlowLoop.cs" t="Include" />
@@ -50,9 +49,8 @@
             </e>
           </e>
         </e>
-        <e p="HealthBar.cs" t="Include" />
-        <e p="HeaterController.cs" t="Include" />
-        <e p="Mount.cs" t="Include" />
+        <e p="FastNotification.cs" t="Include" />
+        <e p="NotificationController.cs" t="Include" />
         <e p="Scenes" t="Include">
           <e p="Example" t="Include">
             <e p="MoveCamera.cs" t="Include" />
@@ -63,13 +61,45 @@
           <e p="AutoLayer.cs" t="Include" />
           <e p="BatteryController.cs" t="Include" />
           <e p="CameraController.cs" t="Include" />
+          <e p="CanvasController.cs" t="Include" />
+          <e p="ChargerController.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GinionController.cs" t="Include" />
           <e p="Grinder.cs" t="Include" />
+          <e p="HealthBar.cs" t="Include" />
+          <e p="HeaterController.cs" t="Include" />
+          <e p="Mount.cs" t="Include" />
           <e p="PlayerController.cs" t="Include" />
           <e p="SpriteOutline.cs" t="Include" />
         </e>
+        <e p="ShipChargerController.cs" t="Include" />
+        <e p="ShipController.cs" t="Include" />
         <e p="Sprites-Outline.shader" t="Include" />
+        <e p="TextMesh Pro" t="Include">
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
         <e p="Wolv Interactive" t="Include">
           <e p="Pixel Perfect Retro Camera" t="Include">
             <e p="readme.txt" t="Include" />

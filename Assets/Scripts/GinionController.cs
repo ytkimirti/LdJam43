@@ -116,6 +116,8 @@ public class GinionController : MonoBehaviour
 	{
 		if (isDed)
 			return;
+
+		GameManager.main.ginionsDiedFromCold++;
 		
 		isDed = true;
 

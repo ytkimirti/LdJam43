@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Grinder : MonoBehaviour
 {
+	public bool isUpgrader = false;
+	
 	public GameObject batteryPrefab;
 	
 	[Space]
@@ -73,14 +75,32 @@ public class Grinder : MonoBehaviour
 		
 		ginion.Destroy();
 		
-		yield return new WaitForSeconds(1.5f);
+		GameManager.main.ginionsSacrificed++;
 		
-		steamParticle.emissionRate = 3;
+		GameManager.main.PopNotification(PlayerController.main.transform.position + Vector3.up * 2f,"Ginion Sacrificed",Color.red);
 
-		steamParticle.startSpeed = 1f;
-		
-		GameObject battery = Instantiate(batteryPrefab, outPoint.position, Quaternion.identity);
+		if (isUpgrader)
+		{
+			yield return new WaitForSeconds(1.2f);
+			
+			CanvasController.main.MovePanel(true);
+			
+			steamParticle.emissionRate = 3;
 
-		battery.transform.DOMove(outOffset.position,1f).SetEase(Ease.InOutQuart);
+			steamParticle.startSpeed = 1f;
+		}
+		else
+		{
+
+			yield return new WaitForSeconds(1.5f);
+
+			steamParticle.emissionRate = 3;
+
+			steamParticle.startSpeed = 1f;
+
+			GameObject battery = Instantiate(batteryPrefab, outPoint.position, Quaternion.identity);
+
+			battery.transform.DOMove(outOffset.position, 1f).SetEase(Ease.InOutQuart);
+		}
 	}
 }
