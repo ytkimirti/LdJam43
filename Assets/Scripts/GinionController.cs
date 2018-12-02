@@ -12,6 +12,8 @@ public class GinionController : MonoBehaviour
 	public bool isGrinding;
 	public bool isDed;
 
+	public float dieSpeed;
+
 	public bool isSafe;
 	private int timer;
 
@@ -43,6 +45,8 @@ public class GinionController : MonoBehaviour
 	
 	void Start ()
 	{
+
+		dieSpeed = Random.Range(0.8f, 1.2f);
 		currHealth = maxHealth;
 		
 		col = GetComponent<Collider2D>();
@@ -81,7 +85,7 @@ public class GinionController : MonoBehaviour
 		}
 		else
 		{
-			currHealth -= Time.deltaTime;
+			currHealth -= Time.deltaTime * dieSpeed;
 		}
 
 		steamParticle.enableEmission = !isSafe;

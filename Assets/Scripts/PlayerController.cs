@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Timers;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class PlayerController : MonoBehaviour
 {
 	public bool isDed;
-	
+
 	public float pickupRadius;
 	public LayerMask pickupsLayer;
 
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
 	public float maxSpeed;
 	
 	[Header("References")]
+	
+	public ShipChargerController sCharger1;
+	public ShipChargerController sCharger2;
+	public ShipChargerController sCharger3;
 	
 	public ChargerController charger;
 
@@ -37,6 +42,20 @@ public class PlayerController : MonoBehaviour
 
 	public Animator faceAnimator;
 	
+	[Header("Tutorial Stuff")]
+	
+	public NotificationController scrapTutorial;
+
+	public NotificationController upgraderTutorial;
+
+	public NotificationController grinderTutorial;
+
+	public NotificationController spaceshipTutorial;
+
+	public NotificationController heaterTutorial;
+
+	public ShipController ship;
+	
 	Rigidbody2D rb;
 	Vector2 inp;
 
@@ -45,6 +64,8 @@ public class PlayerController : MonoBehaviour
 	void Start ()
 	{
 
+		ship = FindObjectOfType<ShipController>();
+		
 		main = this;
 		
 		rb = GetComponent<Rigidbody2D>();
@@ -75,7 +96,7 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void Die()
+	public void Die(bool isGood)
 	{
 		if (isDed)
 			return;
@@ -123,13 +144,14 @@ public class PlayerController : MonoBehaviour
 		}
 		else
 		{
-			juice -= Time.deltaTime * 1.5f;	
+			if(!GameManager.main.stopPlayer)
+				juice -= Time.deltaTime * 1.4f;	
 		}
 		
 		if (juice < 0)
 		{
 			juice = 0;
-			Die();
+			Die(false);
 		}
 
 		healthBar.currHealth = juice / maxJuice;
@@ -153,7 +175,21 @@ public class PlayerController : MonoBehaviour
 				if (heater.currBattery && currLoad == heater.currBattery.transform)
 				{
 					heater.currBattery = null;
+				}else if(sCharger1.currBattery && currLoad == sCharger1.currBattery.transform)
+				{
+					sCharger1.currBattery = null;
+				}else if(sCharger2.currBattery && currLoad == sCharger2.currBattery.transform)
+				{
+					sCharger2.currBattery = null;
+				}else if(sCharger3.currBattery && currLoad == sCharger3.currBattery.transform)
+				{
+					sCharger3.currBattery = null;
 				}
+
+				AudioManager.main.Play("tick");
+				
+				if (currLoad.tag == "scrap")
+					scrapTutorial.CompletedTutorial();
 
 				currLoad.DOKill();
 				
@@ -173,6 +209,10 @@ public class PlayerController : MonoBehaviour
 				{
 					col.gameObject.GetComponent<Grinder>().MountSomething(currLoad);
 					Unload();
+					
+					AudioManager.main.Play("pop");
+					
+					grinderTutorial.CompletedTutorial();
 				}
 			}else if (col.gameObject.tag == "charger" && currLoad.gameObject.tag == "battery")
 			{
@@ -180,6 +220,7 @@ public class PlayerController : MonoBehaviour
 				{
 					col.gameObject.GetComponent<ChargerController>().MountBattery(currLoad);
 					Unload();
+					
 				}
 			}else if (col.gameObject.tag == "heater" && currLoad.gameObject.tag == "battery")
 			{
@@ -187,6 +228,8 @@ public class PlayerController : MonoBehaviour
 				{
 					col.gameObject.GetComponent<HeaterController>().MountBattery(currLoad);
 					Unload();
+					
+					heaterTutorial.CompletedTutorial();
 				}
 			}else if (col.gameObject.tag == "ship" && currLoad.gameObject.tag == "scrap")
 			{
@@ -196,6 +239,8 @@ public class PlayerController : MonoBehaviour
 					print("Loading scrap to the spaceship!");
 					col.gameObject.GetComponent<ShipController>().MountScrap(currLoad);
 					Unload();
+					
+					//spaceshipTutorial.CompletedTutorial();
 				}
 			}else if (col.gameObject.tag == "shipcharger" && currLoad.gameObject.tag == "battery")
 			{
@@ -204,8 +249,7 @@ public class PlayerController : MonoBehaviour
 					col.gameObject.GetComponent<ShipChargerController>().MountBattery(currLoad);
 					Unload();
 				}
-			}
-			else
+			}else
 			{
 				return;
 			}
@@ -217,6 +261,12 @@ public class PlayerController : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Space))
 			{
 				Unload();
+			}
+		}else if (col && col.gameObject.tag == "ship" && ship.isShipReady)
+		{
+			if (Input.GetKeyDown(KeyCode.Space))
+			{
+				
 			}
 		}
 	}

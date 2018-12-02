@@ -22,6 +22,8 @@ public class Grinder : MonoBehaviour
 
 	public ParticleSystem steamParticle;
 	public ParticleSystem bloodParticle;
+
+	public AudioSource grinderSound;
 	
 	void Start () {
 		
@@ -57,6 +59,9 @@ public class Grinder : MonoBehaviour
 		steamParticle.emissionRate = 20;
 
 		steamParticle.startSpeed = 3f;
+
+		grinderSound.DOFade(1,1);
+		grinderSound.DOPitch(1.4f, 1);
 		
 		yield return new WaitForSeconds(1.1f);
 
@@ -70,11 +75,21 @@ public class Grinder : MonoBehaviour
 
 			steamParticle.startSpeed = 1f;
 			
+			
+			grinderSound.DOFade(0.2f,1);
+			grinderSound.DOPitch(1, 1);
+			
 			yield break;
 		}
 		
 		ginion.Destroy();
+
+		AudioManager.main.Play("die");
+
+		yield return new WaitForSeconds(0.1f);
 		
+		AudioManager.main.Play("gore");
+	
 		GameManager.main.ginionsSacrificed++;
 		
 		GameManager.main.PopNotification(PlayerController.main.transform.position + Vector3.up * 2f,"Ginion Sacrificed",Color.red);
@@ -85,6 +100,9 @@ public class Grinder : MonoBehaviour
 			
 			CanvasController.main.MovePanel(true);
 			
+			grinderSound.DOFade(0.2f,1);
+			grinderSound.DOPitch(1, 1);
+			
 			steamParticle.emissionRate = 3;
 
 			steamParticle.startSpeed = 1f;
@@ -94,6 +112,9 @@ public class Grinder : MonoBehaviour
 
 			yield return new WaitForSeconds(1.5f);
 
+			grinderSound.DOFade(0.2f,1);
+			grinderSound.DOPitch(1, 1);
+			
 			steamParticle.emissionRate = 3;
 
 			steamParticle.startSpeed = 1f;

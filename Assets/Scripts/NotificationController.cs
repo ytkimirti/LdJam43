@@ -11,6 +11,7 @@ public class NotificationController : MonoBehaviour
 	public Transform spriteTrans;
 	public string showText;
 	public TextMeshPro text;
+	public bool isDed;
 	
 	void Start () {
 		
@@ -34,7 +35,7 @@ public class NotificationController : MonoBehaviour
 
 	public void Notification(bool open)
 	{
-		if (isOpen == open)
+		if (isOpen == open || isDed)
 			return;
 
 		isOpen = open;
@@ -49,5 +50,15 @@ public class NotificationController : MonoBehaviour
 		{
 			spriteTrans.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutQuart);
 		}
+	}
+
+	public void CompletedTutorial()
+	{
+		if (isDed)
+			return;
+				
+		Notification(false);
+		
+		isDed = true;
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class HeaterController : MonoBehaviour
@@ -51,8 +52,13 @@ public class HeaterController : MonoBehaviour
 		if (!battery)
 			return;
 
-		battery.transform.position = batteryPoint.position;
+		battery.transform.DOMove(batteryPoint.position, 0.4f).SetEase(Ease.InOutQuart).OnComplete(TickSound);
 		currBattery = battery;
+	}
+
+	void TickSound()
+	{
+		AudioManager.main.Play("tick");
 	}
 
 	public void IncreaseRadius(float val)
