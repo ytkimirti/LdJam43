@@ -91,6 +91,8 @@ public class ShipController : MonoBehaviour
 
 	public void PlayAnimation()
 	{
+		glowLoop.enabled = false;
+		spriteTrans.GetComponent<SpriteRenderer>().color = Color.white;
 		GetComponent<Animator>().SetTrigger("fly");
 		Invoke("roll", 6);
 	}
@@ -134,5 +136,6 @@ public class ShipController : MonoBehaviour
 	void OnCompleted()
 	{
 		GameManager.main.PopNotification(PlayerController.main.transform.position + Vector3.up * 2f,"Scrap Added",Color.green);
+		AudioManager.main.Play("powerup");
 	}
 }

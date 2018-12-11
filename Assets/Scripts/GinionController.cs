@@ -46,7 +46,7 @@ public class GinionController : MonoBehaviour
 	void Start ()
 	{
 
-		dieSpeed = Random.Range(0.8f, 1.2f);
+		dieSpeed = Random.Range(0.8f, 1.1f);
 		currHealth = maxHealth;
 		
 		col = GetComponent<Collider2D>();

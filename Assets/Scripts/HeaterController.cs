@@ -26,7 +26,7 @@ public class HeaterController : MonoBehaviour
 		
 		if (isWorking)
 		{
-			currBattery.juice -= Time.deltaTime * 5;
+			currBattery.juice -= Time.deltaTime * 2;
 
 			if (currBattery.juice < 0)
 			{

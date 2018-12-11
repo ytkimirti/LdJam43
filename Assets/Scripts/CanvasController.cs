@@ -168,7 +168,7 @@ public class CanvasController : MonoBehaviour
 		{
 			GameManager.main.stopPlayer = true;
 			Time.timeScale = 0.1f;
-			endPanel.DOMoveY(panelOpenPos, 1f);
+			endPanel.DOMoveY(panelOpenPos, 0.1f);
 		}
 		else
 		{

@@ -21,7 +21,7 @@ public class ChargerController : MonoBehaviour
 		if (currBattery && currBattery.juice != 0 && isInside)
 		{
 			isCharging = true;
-			currBattery.juice -= Time.deltaTime * 7;
+			currBattery.juice -= Time.deltaTime * 10;
 			if (currBattery.juice < 0)
 			{
 				isCharging = false;

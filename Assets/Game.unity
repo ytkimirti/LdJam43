@@ -14856,6 +14856,7 @@ GameObject:
   - component: {fileID: 268683327}
   - component: {fileID: 268683330}
   - component: {fileID: 268683331}
+  - component: {fileID: 268683332}
   m_Layer: 11
   m_Name: GameManager
   m_TagString: Untagged
@@ -15003,11 +15004,11 @@ MonoBehaviour:
   ginionPrefab: {fileID: 1944770572615172, guid: 65c07c7b8305ab241b6d6754995167a6,
     type: 2}
   stormDamage: 0
-  spawnCount: 3
-  spawnCountIncrease: 2
+  spawnCount: 5
+  spawnCountIncrease: 4
   waveDelay: 0
   waveDelayIncrease: 20
-  spawnArea: {x: 20, y: 15}
+  spawnArea: {x: 18, y: 13}
   flyOffset: 10
   ginionsSacrificed: 0
   ginionsSaved: 0
@@ -15031,6 +15032,102 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 102
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &268683332
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 268683326}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 243221525498474106, guid: 8c8bbb5dbd3e89449899f0767f6fe4fe,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 88696b5880a74d04183c25eb4d9dfd53, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 0.9
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -59912,7 +60009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currJuice: 0
-  maxJuice: 300
+  maxJuice: 250
   scrapCount: 0
   bar: {fileID: 196782697}
   scrapTarget: {fileID: 700414357}

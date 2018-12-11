@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
 	{
 		waveTimer += Time.deltaTime;
 
-		if (waveTimer > waveDelay && spawnedCount < 2)
+		if (waveTimer > waveDelay && spawnedCount < 3)
 		{
 			waveTimer = 0;
 			SpawnNextWave();

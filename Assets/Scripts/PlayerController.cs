@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
 		
 		if (charger.isCharging)
 		{
-			juice += Time.deltaTime * 5;
+			juice += Time.deltaTime * 10;
 			if (juice > maxJuice)
 			{
 				juice = maxJuice;
